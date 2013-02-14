@@ -1,0 +1,260 @@
+** Math
+
+* Functions built in arbitrary behavioral voltage
+
+.subckt abs v x
+B1 v 0 V=abs(V(x))
+.ends abs
+
+.subckt acos v x
+B1 v 0 V=acos(V(x))
+.ends acos
+
+.subckt acosh v x
+B1 v 0 V=acosh(V(x))
+.ends acosh
+
+.subckt asin v x
+B1 v 0 V=asin(V(x))
+.ends asin
+
+.subckt asinh v x
+B1 v 0 V=asinh(V(x))
+.ends asinh
+
+.subckt atan v x
+B1 v 0 V=atan(V(x))
+.ends atan
+
+.subckt atan2 v y x
+B1 v 0 V=atan2(V(y),V(x))
+.ends atan2
+
+.subckt atanh v x
+B1 v 0 V=atanh(V(x))
+.ends atanh
+
+.subckt buf v x
+B1 v 0 V=buf(V(x))
+.ends buf
+
+.subckt ceil v x
+B1 v 0 V=ceil(V(x))
+.ends ceil
+
+.subckt cos v x
+B1 v 0 V=cos(V(x))
+.ends cos
+
+.subckt cosh v x
+B1 v 0 V=cosh(V(x))
+.ends cosh
+
+.subckt ddt v x
+B1 v 0 V=ddt(V(x))
+.ends ddt
+
+.subckt delay v x
+B1 v 0 V=delay(V(x),t)
+.params t=1
+.ends delay
+
+.subckt delay2 v x t
+B1 v 0 V=delay(V(x),V(t),tmax)
+.params tmax=1.7976931348623158e+308
+.ends delay
+
+.subckt delay3 v x t tmax
+B1 v 0 V=delay(V(x),V(t),V(tmax))
+.ends delay
+
+.subckt exp v x
+B1 v 0 V=exp(V(x))
+.ends exp
+
+.subckt floor v x
+B1 v 0 V=floor(V(x))
+.ends floor
+
+.subckt hypot v x y
+B1 v 0 V=hypot(V(x),V(y))
+.ends hypot
+
+.subckt idt v x
+B1 v 0 V=idt(V(x),ic)
+.params ic=0
+.ends idt
+
+.subckt idt2 v x ic a
+B1 v 0 V=idt(V(x),V(ic),V(a))
+.ends idt
+
+.subckt idtmod v x
+B1 v 0 V=idtmod(V(x),ic,m,o)
+.params ic=0 m=0 o=0
+.ends idtmod
+
+.subckt idtmod2 v x ic m o
+B1 v 0 V=idtmod(V(x),V(ic),V(m),V(o))
+.ends idtmod
+
+.subckt if v x y z
+B1 v 0 V=if(V(x),V(y),V(z))
+.ends if
+
+.subckt int v x
+B1 v 0 V=int(V(x))
+.ends int
+
+.subckt inv v x
+B1 v 0 V=inv(V(x))
+.ends inv
+
+.subckt limit v x
+B1 v 0 V=limit(V(x),y,z)
+.params y=-1.7976931348623158e+308 z=1.7976931348623158e+308
+.ends limit
+
+.subckt limit2 v x y z
+B1 v 0 V=limit(V(x),V(y),V(z))
+.ends limit
+
+.subckt ln v x
+B1 v 0 V=ln(V(x))
+.ends ln
+
+.subckt log10 v x
+B1 v 0 V=log10(V(x))
+.ends log10
+
+.subckt max v x y
+B1 v 0 V=max(V(x),V(y))
+.ends max
+
+.subckt min v x y
+B1 v 0 V=min(V(x),V(y))
+.ends min
+
+.subckt pow v x y
+B1 v 0 V=pow(V(x),V(y))
+.ends pow
+
+.subckt pwr v x y
+B1 v 0 V=pwr(V(x),V(y))
+.ends pwr
+
+.subckt pwrs v x y
+B1 v 0 V=pwrs(V(x),V(y))
+.ends pwrs
+
+.subckt rand v x
+B1 v 0 V=rand(V(x))
+.ends rand
+
+.subckt random v x
+B1 v 0 V=random(V(x))
+.ends random
+
+.subckt round v x
+B1 v 0 V=round(V(x))
+.ends round
+
+.subckt sgn v x
+B1 v 0 V=sgn(V(x))
+.ends sgn
+
+.subckt sin v x
+B1 v 0 V=sin(V(x))
+.ends sin
+
+.subckt sinh v x
+B1 v 0 V=sinh(V(x))
+.ends sinh
+
+.subckt sqrt v x
+B1 v 0 V=sqrt(V(x))
+.ends sqrt
+
+.subckt tan v x
+B1 v 0 V=tan(V(x))
+.ends tan
+
+.subckt tanh v x
+B1 v 0 V=tanh(V(x))
+.ends tanh
+
+.subckt u v x
+B1 v 0 V=u(V(x))
+.ends u
+
+.subckt uramp v x
+B1 v 0 V=uramp(V(x))
+.ends uramp
+
+.subckt white v x
+B1 v 0 V=white(V(x))
+.ends white
+
+* Operands built in arbitrary behavioral voltage
+
+.subckt and v x y
+B1 v 0 V=V(x)&V(y)
+.ends and
+
+.subckt or v x y
+B1 v 0 V=V(x)|V(y)
+.ends or
+
+.subckt xor v x y
+B1 v 0 V=V(x)^V(y)
+.ends xor
+
+.subckt nle v x y
+B1 v 0 V=V(x)>V(y)
+.ends nle
+
+.subckt lt v x y
+B1 v 0 V=V(x)<V(y)
+.ends lt
+
+.subckt nlt v x y
+B1 v 0 V=V(x)>=V(y)
+.ends nlt
+
+.subckt le v x y
+B1 v 0 V=V(x)<=V(y)
+.ends le
+
+.subckt add v x y
+B1 v 0 V=V(x)+V(y)
+.ends add
+
+.subckt sub v x y
+B1 v 0 V=V(x)-V(y)
+.ends sub
+
+.subckt mul v x y
+B1 v 0 V=V(x)*V(y)
+.ends mul
+
+.subckt div v x y
+B1 v 0 V=V(x)/V(y)
+.ends div
+
+* Additional Operands
+
+.subckt neg v x
+B1 v 0 V=-V(x)
+.ends neg
+
+.subckt rcp v x
+B1 v 0 V=1/V(x)
+.ends rcp
+
+.subckt inc v x
+B1 v 0 V=V(x)+1
+.ends inc
+
+.subckt dec v x
+B1 v 0 V=V(x)-1
+.ends dec

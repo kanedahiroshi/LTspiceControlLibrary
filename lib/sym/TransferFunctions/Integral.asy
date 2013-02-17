@@ -11,6 +11,9 @@ LINE Normal 32 -52 32 -12
 LINE Normal 0 -52 32 -52
 TEXT 16 -42 Center 2 1
 TEXT 16 -22 Center 2 Ts
+WINDOW 3 0 0 Left 2
+SYMATTR Value T=1
+SYMATTR Value2 Y0=0
 SYMATTR Prefix X
 SYMATTR SpiceModel Integral
 SYMATTR Description 1/(Ts): Integral element. (default T=1 Y0=0)

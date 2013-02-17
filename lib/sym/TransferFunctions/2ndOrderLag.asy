@@ -11,6 +11,8 @@ LINE Normal 176 -52 176 -12
 LINE Normal 0 -52 176 -52
 TEXT 88 -42 Center 2 Kw^2
 TEXT 88 -22 Center 2 s^2+2zws+w^2
+WINDOW 3 0 0 Left 2
+SYMATTR Value K=1 w=1 z=1
 SYMATTR Prefix X
 SYMATTR SpiceModel 2ndOrderLag
 SYMATTR Description (Kw^2)/(s^2+2zws+w^2): 2nd order lag element. (default K=1 w=1 z=1)

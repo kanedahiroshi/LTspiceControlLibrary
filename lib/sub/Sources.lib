@@ -1,0 +1,6 @@
+** Sources
+
+.subckt TriangleWaveVoltage n+ n-
+V1 n+ n- PULSE({V1} {V2} {Tdelay} {tratio*(Tperiod-Ton)} {(1-tratio)*(Tperiod-Ton)} {Ton} {Tperiod} {Ncycles})
+.params V1=-1 V2=1 Tdelay=0 Tperiod=1 tratio=0.5 Ton=0.1m*Tperiod Ncycles=0
+.ends TriangleWaveVoltage

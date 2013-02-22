@@ -15,6 +15,11 @@ B1 Y 0 V=idt(V(U),Y0*T)/T
 .params T=1 Y0=0
 .ends Integral
 
+.subckt LimitedIntegral Y U
+B1 Y 0 V=idt(V(U),if(V(Y)>=Ymax,Ymax,if(V(Y)<=Ymin,Ymin,Y0))*T,((V(Y)>=Ymax)&(V(U)>0))|((V(Y)<=Ymin)&(V(U)<0)))/T
+.params T=1 Y0=0 Ymin=-1T Ymax=1T
+.ends LimitedIntegral
+
 .subckt 1stOrderLag Y U
 E1 Y 0 U 0 Laplace = {K/(1+T*s)}
 .params K=1 T=1

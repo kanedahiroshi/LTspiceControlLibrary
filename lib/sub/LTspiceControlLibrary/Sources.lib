@@ -4,3 +4,10 @@
 V1 n+ n- PULSE({V1} {V2} {Tdelay} {tratio*(Tperiod-Ton)} {(1-tratio)*(Tperiod-Ton)} {Ton} {Tperiod} {Ncycles})
 .params V1=-1 V2=1 Tdelay=0 Tperiod=1 tratio=0.5 Ton=0.1m*Tperiod Ncycles=0
 .ends TriangleWaveVoltage
+
+.subckt 3PhaseWyeSinWaveVoltage R S T N
+V1 R N SINE({Voffset} {Vamp} {Freq} {Td} {Theta} {Phi} {Ncycles})
+V2 S N SINE({Voffset} {Vamp} {Freq} {Td} {Theta} {Phi-120} {Ncycles})
+V3 T N SINE({Voffset} {Vamp} {Freq} {Td} {Theta} {Phi+120} {Ncycles})
+.params Voffset=0 Vamp=1 Freq=1 Td=0 Theta=0 Phi=0 Ncycles=0
+.ends 3PhaseWyeSinWaveVoltage

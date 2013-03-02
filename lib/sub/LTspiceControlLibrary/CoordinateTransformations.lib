@@ -1,0 +1,47 @@
+** Coordinate Transformations
+
+.subckt xy-rpTransformation x y r p
+B1 r 0 V=hypot(V(x),V(y))
+B2 p 0 V=atan2(V(y),V(x))
+.ends xy-rpTransformation
+
+.subckt rp-xyTransformation r p x y
+B1 x 0 V=V(r)*cos(V(p))
+B2 y 0 V=V(r)*sin(V(p))
+.ends rp-xyTransformation
+
+.subckt xyRotation x1 y1 p x2 y2
+B1 cosp 0 V=cos(V(p))
+B2 sinp 0 V=sin(V(p))
+B3 x2 0 V=V(x1)*V(cosp)-V(y1)*V(sinp)
+B4 y2 0 V=V(x1)*V(sinp)+V(y1)*V(cosp)
+.ends xyRotation
+
+.subckt uw-abTransformation u w a b
+B1 a 0 V=K*1.5*V(u)
+B2 b 0 V=K*sqrt(3/4)*(-V(u)-2*V(w))
+.params K=sqrt(2/3)
+.ends uw-abTransformation
+
+.subckt uvw-aboTransformation u v w a b o
+B1 a 0 V=K*0.5*(2*V(u)-V(v)-V(w))
+B2 b 0 V=K*sqrt(3/4)*(V(v)-V(w))
+B3 o 0 V=K*sqrt(1/2)*(V(u)+V(v)+V(w))
+.params K=sqrt(2/3)
+.ends uvw-aboTransformation
+
+.subckt ab-uvwTransformation a b u v w
+B1 u 0 V=K*V(a)
+B2 v 0 V=-V(u)-V(w)
+B3 w 0 V=K*(-0.5*V(a)-sqrt(3/4)*V(b))
+.params K=sqrt(2/3)
+.ends ab-uvwTransformation
+
+.subckt abo-uvwTransformation a b o u v w
+X1 a b u1 v1 w1 ab-uvwTransformation K={K}
+B1 o1 0 V=K*sqrt(1/2)*V(o)
+B2 u 0 V=V(u1)+V(o1)
+B3 v 0 V=V(v1)+V(o1)
+B4 w 0 V=V(w1)+V(o1)
+.params K=sqrt(2/3)
+.ends abo-uvwTransformation

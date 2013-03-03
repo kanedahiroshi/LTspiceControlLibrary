@@ -258,3 +258,8 @@ B1 v 0 V=V(x)+1
 .subckt dec v x
 B1 v 0 V=V(x)-1
 .ends dec
+
+.subckt addk v x
+B1 v 0 V=V(x)+k
+.params k=0
+.ends addk

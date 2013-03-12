@@ -1,5 +1,16 @@
 ** Motors
 
+.subckt DCMotor e+ e- m+ m-
+Re1 e+ Ne01 {Ra}
+Le1 Ne01 Ne02 {La} Rser=0
+Be1 Ne02 e- V=-Ke*I(Bm1)
+Rm1 m+ Nm01 {Dm}
+Lm1 Nm01 Nm02 {Jm} Rser=0
+Bm1 Nm02 m- V=Kt*I(Be1)
+.params Ra=1 La=1m Ke=0.01 Dm=10u Jm=10u
+.params Kt=Ke
+.ends DCMotor
+
 .subckt PMSMotor U V W m+ m-
 Rd1 Vd Nd01 {Ra}
 Ld1 Nd01 Nd02 {Ld} Rser=0

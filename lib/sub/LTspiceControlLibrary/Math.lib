@@ -115,9 +115,9 @@ B1 v 0 V=limit(V(x),y,z)
 .params y=-1.7976931348623158e+308 z=1.7976931348623158e+308
 .ends limit
 
-.subckt limit2 v x y z
+.subckt mid v x y z
 B1 v 0 V=limit(V(x),V(y),V(z))
-.ends limit
+.ends mid
 
 .subckt ln v x
 B1 v 0 V=ln(V(x))

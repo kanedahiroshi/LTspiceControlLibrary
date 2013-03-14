@@ -1,9 +1,5 @@
-===========================
 LTspice Control Library
 ===========================
-
-What's this
-=============
 LTspice Control Library provides a set of control elements, that allow to design a controller of a circuit by drawing
 a control block diagram and simulate the circuit and the controller on LTspice IV.
 

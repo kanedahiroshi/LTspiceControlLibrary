@@ -62,11 +62,11 @@ B1 v 0 V=delay(V(x),t)
 .subckt delay2 v x t
 B1 v 0 V=delay(V(x),V(t),tmax)
 .params tmax=1.7976931348623158e+308
-.ends delay
+.ends delay2
 
 .subckt delay3 v x t tmax
 B1 v 0 V=delay(V(x),V(t),V(tmax))
-.ends delay
+.ends delay3
 
 .subckt exp v x
 B1 v 0 V=exp(V(x))
@@ -87,7 +87,7 @@ B1 v 0 V=idt(V(x),ic)
 
 .subckt idt2 v x ic a
 B1 v 0 V=idt(V(x),V(ic),V(a))
-.ends idt
+.ends idt2
 
 .subckt idtmod v x
 B1 v 0 V=idtmod(V(x),ic,m,o)
@@ -96,7 +96,7 @@ B1 v 0 V=idtmod(V(x),ic,m,o)
 
 .subckt idtmod2 v x ic m o
 B1 v 0 V=idtmod(V(x),V(ic),V(m),V(o))
-.ends idtmod
+.ends idtmod2
 
 .subckt if v x y z
 B1 v 0 V=if(V(x),V(y),V(z))

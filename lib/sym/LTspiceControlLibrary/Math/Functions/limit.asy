@@ -11,7 +11,7 @@ LINE Normal 0 -48 80 -48
 TEXT 40 -32 Center 2 limit
 SYMATTR Prefix X
 SYMATTR SpiceModel limit
-SYMATTR Description limit(x): Intermediate value of x, y (default -DBL_MAX), and z (default +DBL_MAX).
+SYMATTR Description limit(x): Intermediate value of x, y (default -1T), and z (default +1T).
 SYMATTR ModelFile LTspiceControlLibrary\Math.lib
 PIN 96 -32 NONE 8
 PINATTR PinName v

@@ -112,7 +112,7 @@ B1 v 0 V=inv(V(x))
 
 .subckt limit v x
 B1 v 0 V=limit(V(x),y,z)
-.params y=-1.7976931348623158e+308 z=1.7976931348623158e+308
+.params y=-1T z=1T
 .ends limit
 
 .subckt mid v x y z

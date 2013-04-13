@@ -14,3 +14,9 @@ B7 wn 0 V=V(W)<=V(CN) tripdt={tripdt} ic=0
 .params Vin1=-1 Vin2=1 Tperiod=100u Tdead=1u Tdelay=0 tripdt=1*Tdead
 .params Vdead=2*(Vin2-Vin1)/(Tperiod/Tdead+2)
 .ends 3PhaseComplementaryPWM
+
+.subckt ComplementaryBufferWithDeadtime I P N
+B1 P 0 V=idt(buf(V(I)),0,inv(V(I)))>=Tdead tripdt={tripdt}
+B2 N 0 V=idt(inv(V(I)),0,buf(V(I)))>=Tdead tripdt={tripdt}
+.params Tdead=1u tripdt=1*Tdead
+.ends ComplementaryBufferWithDeadtime

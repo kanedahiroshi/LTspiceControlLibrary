@@ -26,6 +26,10 @@ goto END
 :GET_LTSPICE_DIR
 set KEY="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\LTspice IV"
 set VALUE="UninstallString"
+
+reg query %KEY% /v %VALUE% >nul 2>nul
+if ERRORLEVEL 1 set KEY="HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\LTspice IV"
+
 for /F "TOKENS=1,2,*" %%I IN ('reg query %KEY% /v %VALUE%') do if "%%I"==%VALUE% set DATA=%%K
 set LTSPICE_DIR=%DATA:~0,-20%
 if not exist "%LTSPICE_DIR%" (

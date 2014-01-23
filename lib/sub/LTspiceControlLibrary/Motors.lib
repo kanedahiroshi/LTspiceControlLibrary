@@ -43,6 +43,38 @@ B12 Ib 0 V=I(Bd1)*V(sinPe)+I(Bq1)*V(cosPe)
 .params Pm0=0
 .ends PMSMotor
 
+.subckt InductionMotor U V W m+ m- fd2 fq2
+Rd11 Vd1 Nd101 {R1}
+Ld11 Nd101 Nd102 {Ll1} Rser=0
+Ld12 Nd102 0 {M} Rser=0
+Rq11 Vq1 Nq101 {R1}
+Lq11 Nq101 Nq102 {Ll1} Rser=0
+Lq12 Nq102 0 {M} Rser=0
+Rd21 0 Nd201 {R2}
+Ld21 Nd201 Nd202 {Ll2} Rser=0
+Ld22 Nd202 Nd203 {M} Rser=0
+Bd21 Nd203 0 V=(M*I(Lq11)+L2*I(Lq21))*V(Oe2)
+Rq21 0 Nq201 {R2}
+Lq21 Nq201 Nq202 {Ll2} Rser=0
+Lq22 Nq202 Nq203 {M} Rser=0
+Bq21 Nq203 0 V=-(M*I(Ld11)+L2*I(Ld21))*V(Oe2)
+Rm1 m+ Nm01 {Dm}
+Lm1 Nm01 Nm02 {Jm} Rser=0
+Bm1 Nm02 m- V=Np*M*(I(Lq11)*I(Ld21)-I(Ld11)*I(Lq21))
+Kd1 Ld12 Ld22 1
+Kq1 Lq12 Lq22 1
+Bu1 U 0 I=sqrt(2/3)*I(Ld11)
+Bv1 V 0 I=-I(Bu1)-I(Bw1)
+Bw1 W 0 I=sqrt(1/6)*(-I(Ld11)-sqrt(3)*I(Lq11))
+B1 Oe2 0 V=-Np*I(Bm1)
+B2 Vd1 0 V=sqrt(1/6)*(V(U,V)+V(U,W))
+B3 Vq1 0 V=sqrt(1/2)*V(V,W)
+B4 fd2 0 V=M*I(Ld11)+L2*I(Ld21)
+B5 fq2 0 V=M*I(Lq11)+L2*I(Lq21)
+.params R1=1 R2=1 M=0.1 Ll1=1m Ll2=1m Dm=10m Jm=10m Np=2
+.params L1=M+Ll1 L2=M+Ll2
+.ends InductionMotor
+
 .subckt 3HallSensors m+ m- u v w
 V1 m+ m- 0 Rser=0
 B1 Pe 0 V=idtmod(I(V1)*Np,Pm0*Np,2*pi)

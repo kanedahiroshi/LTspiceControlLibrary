@@ -34,6 +34,12 @@ LINE Normal -48 176 -48 160
 LINE Normal -96 144 -96 122
 LINE Normal -112 160 -96 144
 LINE Normal -112 176 -112 160
+LINE Normal -103 151 -103 146
+LINE Normal -98 151 -103 151
+LINE Normal -80 160 -84 156
+LINE Normal -76 156 -80 160
+LINE Normal -57 151 -57 146
+LINE Normal -62 151 -57 151
 CIRCLE Normal -112 96 -48 160 1
 CIRCLE Normal -91 122 -101 112
 CIRCLE Normal -122 123 -125 120
@@ -47,7 +53,7 @@ SYMATTR Value2 Pm0=0
 SYMATTR Prefix X
 SYMATTR SpiceModel 3HallSensors
 SYMATTR Description u=(Pe>=0)&(Pe<pi) v=(Pe>=2/3*pi)&(Pe<5/3*pi) w=!((Pe>=1/3*pi)&(Pe<4/3*pi)) Pe=(Om*Np/s)%(2*pi):3 Hall effect position sensors. (default Np=3 Pm0=0)
-SYMATTR ModelFile LTspiceControlLibrary\Motors.lib
+SYMATTR ModelFile LTspiceControlLibrary\Sensors.lib
 PIN -128 128 NONE 8
 PINATTR PinName m+
 PINATTR SpiceOrder 1

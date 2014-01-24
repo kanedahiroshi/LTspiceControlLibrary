@@ -74,12 +74,3 @@ B5 fq2 0 V=M*I(Lq11)+L2*I(Lq21)
 .params R1=1 R2=1 M=0.1 Ll1=1m Ll2=1m Dm=10m Jm=10m Np=2
 .params L1=M+Ll1 L2=M+Ll2
 .ends InductionMotor
-
-.subckt 3HallSensors m+ m- u v w
-V1 m+ m- 0 Rser=0
-B1 Pe 0 V=idtmod(I(V1)*Np,Pm0*Np,2*pi)
-B2 u 0 V=(V(Pe)>=0)&(V(Pe)<pi)
-B3 v 0 V=(V(Pe)>=2/3*pi)&(V(Pe)<5/3*pi)
-B4 w 0 V=!((V(Pe)>=1/3*pi)&(V(Pe)<4/3*pi))
-.params Np=3 Pm0=0
-.ends 3HallSensors

@@ -1,0 +1,10 @@
+** Sensors
+
+.subckt 3HallSensors m+ m- u v w
+V1 m+ m- 0 Rser=0
+B1 Pe 0 V=idtmod(I(V1)*Np,Pm0*Np,2*pi)
+B2 u 0 V=(V(Pe)>=0)&(V(Pe)<pi)
+B3 v 0 V=(V(Pe)>=2/3*pi)&(V(Pe)<5/3*pi)
+B4 w 0 V=!((V(Pe)>=1/3*pi)&(V(Pe)<4/3*pi))
+.params Np=3 Pm0=0
+.ends 3HallSensors

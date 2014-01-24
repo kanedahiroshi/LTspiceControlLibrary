@@ -1,5 +1,10 @@
 ** Sensors
 
+.subckt CurrentSensor n+ n- vi
+V1 n+ n- 0 Rser=0
+B1 vi 0 V=I(V1)
+.ends CurrentSensor
+
 .subckt 3HallSensors m+ m- u v w
 V1 m+ m- 0 Rser=0
 B1 Pe 0 V=idtmod(I(V1)*Np,Pm0*Np,2*pi)

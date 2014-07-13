@@ -59,3 +59,13 @@ E2 Y 0 N003 0 {K}
 .params K=1 w=1 z=1
 .params L1=1/w C1=1/w R1=2*z
 .ends 2ndOrderHighPassFilter
+
+.subckt 2ndOrderBandPassFilter Y U
+E1 N001 0 U 0 1
+L1 N001 N002 {L1} Rser=0
+C1 N002 N003 {C1}
+R1 N003 0 {R1}
+E2 Y 0 N003 0 {K}
+.params K=1 w=1 z=1
+.params L1=1/w C1=1/w R1=2*z
+.ends 2ndOrderBandPassFilter

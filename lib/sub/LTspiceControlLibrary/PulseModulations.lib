@@ -32,3 +32,9 @@ B1 P1 0 V=idt(inv(V(I)),0,buf(V(I)))>=Tedge tripdt={tripdt}
 B2 P 0 V=inv(V(I))^V(P1)
 .params Tedge=1u tripdt=0.1*Tedge
 .ends FallingEdgeDetector
+
+.subckt BothEdgesDetector I P
+XU1 I P1 N1 ComplementaryBufferWithDeadtime Tdead={Tedge} tripdt={tripdt}
+B1 P 0 V=!(V(P1)^V(N1))
+.params Tedge=1u tripdt=0.1*Tedge
+.ends BothEdgesDetector

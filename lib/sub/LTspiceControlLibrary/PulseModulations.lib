@@ -38,3 +38,8 @@ XU1 I P1 N1 ComplementaryBufferWithDeadtime Tdead={Tedge} tripdt={tripdt}
 B1 P 0 V=!(V(P1)^V(N1))
 .params Tedge=1u tripdt=0.1*Tedge
 .ends BothEdgesDetector
+
+.subckt PulseTimer I P
+B1 P 0 V=idt(F,ic,buf(V(I)))
+.params F=1 ic=0
+.ends PulseTimer

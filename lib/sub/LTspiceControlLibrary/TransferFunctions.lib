@@ -31,8 +31,13 @@ E1 Y 0 U 0 Laplace=K/(1+T*s) mtol={mtol}
 .ends 1stOrderLag
 
 .subckt 2ndOrderLag Y U
-E1 Y 0 U 0 Laplace=(K*w*w)/(s*s+2*z*w*s+w*w) mtol={mtol}
-.params K=1 w=1 z=1 mtol=1
+E1 N001 0 U 0 1
+R1 N001 N002 {R1}
+L1 N002 N003 {L1} Rser=0
+C1 N003 0 {C1}
+E2 Y 0 N003 0 {K}
+.params K=1 w=1 z=1
+.params L1=1/w C1=1/w R1=2*z
 .ends 2ndOrderLag
 
 .subckt DeadTime Y U

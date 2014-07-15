@@ -49,8 +49,11 @@ B1 Y 0 V=delay(V(U),T)
 .ends DeadTime
 
 .subckt LaggedDerivative Y U
-E1 Y 0 U 0 Laplace=(T*s)/(1+i*T*s) mtol={mtol}
-.params i=1 T=1 mtol=0.1
+E1 N001 0 U 0 1
+C1 N001 N002 {i*T}
+R1 N002 0 1
+E2 Y 0 N002 0 {1/i}
+.params i=1 T=1
 .ends LaggedDerivative
 
 .subckt 2ndOrderHighPassFilter Y U

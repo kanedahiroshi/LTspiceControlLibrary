@@ -12,5 +12,10 @@ Installation
   * Search the installation directory of LTspice IV. (default: LTSPICE_DIR=C:\Program Files\LTC\LTspiceIV)
   * Copy "LTspiceControlLibrary\lib\sub\LTspiceControlLibrary" to "%LTSPICE_DIR%\lib\sub\LTspiceControlLibrary".
   * Copy "LTspiceControlLibrary\lib\sym\LTspiceControlLibrary" to "%LTSPICE_DIR%\lib\sym\LTspiceControlLibrary".
-2. Restart LTspice IV. The library should be now usable. 
+2. Restart LTspice IV. The library should be now usable.
 3. Try examples in "LTspiceControlLibrary\examples" to confirm installation and learn how to use this library.
+
+More Information
+===========================
+- List of [Control Elements](ControlElements.md)
+- LTspice Control Library is released under the [MIT License](LICENSE.txt)

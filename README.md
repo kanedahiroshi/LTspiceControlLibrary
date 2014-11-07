@@ -7,13 +7,15 @@ a control block diagram and simulate the circuit and the controller on LTspice I
 
 Installation
 ==============
-1. Run the script "LTspiceControlLibrary\install.bat" as Administrator.  
+1. Install LTspice IV.
+2. Download [LTspice Control Library](https://github.com/kanedahiroshi/LTspiceControlLibrary/archive/master.zip).
+3. Unzip the downloaded file and run the script "LTspiceControlLibrary\install.bat" as Administrator.  
   This script works as below:
   * Search the installation directory of LTspice IV. (default: LTSPICE_DIR=C:\Program Files\LTC\LTspiceIV)
   * Copy "LTspiceControlLibrary\lib\sub\LTspiceControlLibrary" to "%LTSPICE_DIR%\lib\sub\LTspiceControlLibrary".
   * Copy "LTspiceControlLibrary\lib\sym\LTspiceControlLibrary" to "%LTSPICE_DIR%\lib\sym\LTspiceControlLibrary".
-2. Restart LTspice IV. The library should be now usable.
-3. Try examples in "LTspiceControlLibrary\examples" to confirm installation and learn how to use this library.
+4. Restart LTspice IV. The library should be now usable.
+5. Try examples in "LTspiceControlLibrary\examples" to confirm installation and learn how to use this library.
 
 More Information
 ===========================

@@ -28,6 +28,7 @@
 | cos | `cos(x)`: Cosine of x. |
 | cosh | `cosh(x)`: Hyperbolic cosine of x. |
 | ddt | `ddt(x)`: Time derivative of x. |
+| deadb | `deadb(x)`: Dead band, if `((min(y,z) < x) & (x < max(y,z)))`, then b else x. (default y=-z z=1 b=0) |
 | delay | `delay(x)`: x delayed by t (defalut 1). |
 | exp | `exp(x)`: e to the x. |
 | floor | `floor(x)`: Integer equal to or less than x. |

@@ -195,6 +195,14 @@ B1 v 0 V=uramp(V(x))
 B1 v 0 V=white(V(x))
 .ends white
 
+* Additional Functions
+
+.subckt deadb v x
+B1 v 0 V=if((min(y,z)<V(x))&(V(x)<max(y,z)),b,V(x))
+.params y=-z z=1
+.params b=0
+.ends deadb
+
 * Operands built in arbitrary behavioral voltage
 
 .subckt and v x y

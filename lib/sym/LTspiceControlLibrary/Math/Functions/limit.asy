@@ -9,6 +9,8 @@ LINE Normal 80 -16 0 -16
 LINE Normal 80 -48 80 -16
 LINE Normal 0 -48 80 -48
 TEXT 40 -32 Center 2 limit
+WINDOW 3 0 0 Left 2
+SYMATTR Value y=-1T z=1T
 SYMATTR Prefix X
 SYMATTR SpiceModel limit
 SYMATTR Description limit(x): Intermediate value of x, y (default -1T), and z (default +1T).

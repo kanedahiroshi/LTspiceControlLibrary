@@ -203,6 +203,22 @@ B1 v 0 V=if((min(y,z)<V(x))&(V(x)<max(y,z)),b,V(x))
 .params b=0
 .ends deadb
 
+.subckt mode v x y
+B1 v 0 V=V(x)-V(y)*sgn(V(y))*floor(V(x)/abs(V(y)))
+.ends mode
+
+.subckt modf v x y
+B1 v 0 V=V(x)-V(y)*floor(V(x)/V(y))
+.ends modf
+
+.subckt modt v x y
+B1 v 0 V=V(x)-V(y)*int(V(x)/V(y))
+.ends modt
+
+.subckt modr v x y
+B1 v 0 V=V(x)-V(y)*round(V(x)/V(y))
+.ends modr
+
 * Operands built in arbitrary behavioral voltage
 
 .subckt and v x y

@@ -44,6 +44,10 @@
 | max | `max(x,y)`: The greater of x or y. |
 | mid | `mid(x,y,z)`: Intermediate value of x, y and z. |
 | min | `min(x,y)`: The smaller of x or y. |
+| mode | `mode(x,y)`: Remainder of euclidean division of y/x. `x-y*sgn(y)*floor(x/abs(y))`. |
+| modf | `modf(x,y)`: Remainder of floored division of y/x. `x-y*floor(x/y)`. |
+| modr | `modr(x,y)`: Remainder of rounded division of y/x. `x-y*round(x/y)`. |
+| modt | `modt(x,y)`: Remainder of truncated division of y/x. `x-y*int(x/y)`. |
 | pow | `pow(x,y)`: Real part of `x**y`, e.g., pow(-1,.5)=0, not i. |
 | pwr | `pwr(x,y)`: `abs(x)**y`. |
 | pwrs | `pwrs(x,y)`: `sgn(x)*abs(x)**y`. |

@@ -30,6 +30,7 @@
 | ddt | `ddt(x)`: Time derivative of x. |
 | deadb | `deadb(x)`: Dead band, if `((min(y,z) < x) & (x < max(y,z)))`, then b else x. (default y=-z z=1 b=0) |
 | delay | `delay(x)`: x delayed by t (defalut 1). |
+| delay2 | `delay2(x,t)`: x delayed by t. Optional max delay notification tmax. |
 | exp | `exp(x)`: e to the x. |
 | floor | `floor(x)`: Integer equal to or less than x. |
 | hypot | `hypot(x,y)`: `sqrt(x**2 + y**2)`. |

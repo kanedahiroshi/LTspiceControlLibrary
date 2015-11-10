@@ -61,7 +61,7 @@ B1 v 0 V=delay(V(x),t)
 
 .subckt delay2 v x t
 B1 v 0 V=delay(V(x),V(t),tmax)
-.params tmax=1.7976931348623158e+308
+.params tmax=1T
 .ends delay2
 
 .subckt delay3 v x t tmax

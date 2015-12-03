@@ -113,6 +113,7 @@
 | Name | Description |
 |---|---|
 | 3PhaseWyeSinWaveVoltage | Wye configuerd 3-phase sin wave voltage source. (default Voffset=0 Vamp=1 Freq=1 Td=0 Theta=0 Phi=0 Ncycles=0) |
+| DCTransformer | Voltage dependent DC transformer. Transformation ratio `r=(V(nc+,nc-)-Vc1)/(Vc2-Vc1)`. (default Vc1=0 Vc2=1) |
 | TriangleWaveVoltage | Triangle wave voltage source. (default V1=-1 V2=1 Tdelay=0 Tperiod=1 tratio=0.5 Ncycles=0) |
 
 ## TransferFunctions

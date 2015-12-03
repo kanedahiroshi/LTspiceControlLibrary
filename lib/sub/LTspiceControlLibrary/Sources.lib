@@ -11,3 +11,10 @@ V2 S N SINE({Voffset} {Vamp} {Freq} {Td} {Theta} {Phi-120} {Ncycles})
 V3 T N SINE({Voffset} {Vamp} {Freq} {Td} {Theta} {Phi+120} {Ncycles})
 .params Voffset=0 Vamp=1 Freq=1 Td=0 Theta=0 Phi=0 Ncycles=0
 .ends 3PhaseWyeSinWaveVoltage
+
+.subckt DCTransformer n1+ n1- n2+ n2- nc+ nc-
+Bi1 n1+ n1- I=-I(Bv1)*V(r)
+Bv1 n2+ n2- V=V(n1+,n1-)*V(r)
+B1 r 0 V=(V(nc+,nc-)-Vc1)/(Vc2-Vc1)
+.params Vc1=0 Vc2=1
+.ends DCTransformer

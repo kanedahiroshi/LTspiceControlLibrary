@@ -11,6 +11,11 @@
 | xy-rpTransformation | Cartesian coords (x,y) to Polar coords (r,phi) transformation. <br /> `r=sqrt(x**2+y**2)` <br /> `p=atan2(y,x)` |
 | xyRotation | Rotation of (x,y) arround the origin of Cartesian coords. <br /> `x'=x*cos(p)-y*sin(p)` <br /> `y'=x*sin(p)+y*cos(p)` |
 
+## Energy Converters
+| Name | Description |
+|---|---|
+| SolarCells | Solar Cells. (default Nser=1 Nper=1 S0=1000 Isc0=1 Rser1=10m Rper1=1k Is=10n Eg=1.11 N=1.2) |
+
 ## Math
 ### Functions
 | Name | Description |

@@ -44,7 +44,7 @@ SYMATTR Value Nser=1 Nper=1 S0=1000 Isc0=1 Rser1=10m Rper1=1k Is=10n Eg=1.11 N=1
 SYMATTR Prefix X
 SYMATTR SpiceModel SolarCells
 SYMATTR Description Solar Cells. (default Nser=1 Nper=1 S0=1000 Isc0=1 Rser1=10m Rper1=1k Is=10n Eg=1.11 N=1.2)
-SYMATTR ModelFile LTspiceControlLibrary\EnergyConverters.lib
+SYMATTR ModelFile LTspiceControlLibrary\Sources.lib
 PIN -48 32 NONE 8
 PINATTR PinName s+
 PINATTR SpiceOrder 1

@@ -11,6 +11,12 @@
 | xy-rpTransformation | Cartesian coords (x,y) to Polar coords (r,phi) transformation. <br /> `r=sqrt(x**2+y**2)` <br /> `p=atan2(y,x)` |
 | xyRotation | Rotation of (x,y) arround the origin of Cartesian coords. <br /> `x'=x*cos(p)-y*sin(p)` <br /> `y'=x*sin(p)+y*cos(p)` |
 
+## Discrete
+| Name | Description |
+|---|---|
+| UnitDelay | `1/z`: Unit delay element. (default T=1 Y0=0 Ymin=-10k Ymax=10k) |
+| ZeroOrderHold | Zero-order hold element. (default T=1 Ymin=-10k Ymax=10k) |
+
 ## Math
 ### Functions
 | Name | Description |

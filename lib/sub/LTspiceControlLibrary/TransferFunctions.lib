@@ -6,7 +6,9 @@ B1 Y 0 V=K*V(U)
 .ends Proportional
 
 .subckt Derivative Y U
-B1 Y 0 V=ddt(V(U))*T
+G1 0 N001 U 0 1
+L1 N001 0 1 Rser=0
+E1 Y 0 N001 0 {T}
 .params T=1
 .ends Derivative
 

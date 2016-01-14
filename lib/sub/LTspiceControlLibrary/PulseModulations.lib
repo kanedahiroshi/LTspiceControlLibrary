@@ -2,6 +2,12 @@
 
 .lib LTspiceControlLibrary\Sources.lib
 
+.subckt PWM I P
+X1 C 0 TriangleWaveVoltage V1={Vin1} V2={Vin2} Tperiod={Tperiod} tratio=1 Tdelay={Tdelay} Ncycles=0
+B2 P 0 V=V(I)>=V(C) tripdt={tripdt} ic=0
+.params Vin1=0 Vin2=1 Tperiod=100u Tdelay=0 tripdt=1m*Tperiod
+.ends PWM
+
 .subckt 3PhaseComplementaryPWM U V W up un vp vn wp wn
 X1 CN 0 TriangleWaveVoltage V1={Vin1} V2={Vin2-Vdead} Tperiod={Tperiod} tratio=0.5 Tdelay={Tdelay} Ncycles=0
 B1 CP 0 V=V(CN)+Vdead

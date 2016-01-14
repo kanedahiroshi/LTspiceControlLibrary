@@ -107,6 +107,7 @@
 | ComplementaryBufferWithDeadtime | Complementary buffer with deadtime. (default Tdead=1u) |
 | FallingEdgeDetector | Falling edge detector. If falling edge (1->0) is detected then positive pulse is output. Output pulse width is Tedge. (default Tedge=1u) |
 | PulseTimer | Pulse timer. If input < 0.5 then timer tick, else timer is reset. Timer tick speed F, initial condition ic. (default F=1 ic=0) |
+| PWM | Pulse Width Modulation. (default Vin1=0 Vin2=1 Tperiod=100u Tdelay=0) |
 | RisingEdgeDetector | Rising edge detector. If rising edge (0->1) is detected then positive pulse is output. Output pulse width is Tedge. (default Tedge=1u) |
 
 ## Sensors

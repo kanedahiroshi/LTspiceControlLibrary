@@ -21,3 +21,5 @@ More Information
 ===========================
 - List of [Control Elements](ControlElements.md)
 - LTspice Control Library is released under the [MIT License](LICENSE.txt)
+- [DCモータ制御 紹介記事用サンプル](examples/Introduction/201310Toragi)
+- [DCブラシレスモータ制御 紹介記事用サンプル](examples/Introduction/201404Interface)

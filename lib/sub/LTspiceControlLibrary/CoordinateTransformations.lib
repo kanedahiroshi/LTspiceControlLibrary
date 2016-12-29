@@ -20,21 +20,21 @@ B4 y2 0 V=V(x1)*V(sinp)+V(y1)*V(cosp)
 .subckt uw-abTransformation u w a b
 B1 a 0 V=K*1.5*V(u)
 B2 b 0 V=K*sqrt(3/4)*(-V(u)-2*V(w))
-.params K=sqrt(2/3)
+.param K=sqrt(2/3)
 .ends uw-abTransformation
 
 .subckt uvw-aboTransformation u v w a b o
 B1 a 0 V=K*0.5*(2*V(u)-V(v)-V(w))
 B2 b 0 V=K*sqrt(3/4)*(V(v)-V(w))
 B3 o 0 V=K*sqrt(1/2)*(V(u)+V(v)+V(w))
-.params K=sqrt(2/3)
+.param K=sqrt(2/3)
 .ends uvw-aboTransformation
 
 .subckt ab-uvwTransformation a b u v w
 B1 u 0 V=K*V(a)
 B2 v 0 V=-V(u)-V(w)
 B3 w 0 V=K*(-0.5*V(a)-sqrt(3/4)*V(b))
-.params K=sqrt(2/3)
+.param K=sqrt(2/3)
 .ends ab-uvwTransformation
 
 .subckt abo-uvwTransformation a b o u v w
@@ -43,5 +43,5 @@ B1 o1 0 V=K*sqrt(1/2)*V(o)
 B2 u 0 V=V(u1)+V(o1)
 B3 v 0 V=V(v1)+V(o1)
 B4 w 0 V=V(w1)+V(o1)
-.params K=sqrt(2/3)
+.param K=sqrt(2/3)
 .ends abo-uvwTransformation

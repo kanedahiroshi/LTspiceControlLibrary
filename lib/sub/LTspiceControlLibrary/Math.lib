@@ -58,12 +58,12 @@ B1 v 0 V=ddt(V(x))
 
 .subckt delay v x
 B1 v 0 V=delay(V(x),t)
-.params t=1
+.param t=1
 .ends delay
 
 .subckt delay2 v x t
 B1 v 0 V=delay(V(x),V(t),tmax)
-.params tmax=1T
+.param tmax=1T
 .ends delay2
 
 .subckt delay3 v x t tmax
@@ -84,7 +84,7 @@ B1 v 0 V=hypot(V(x),V(y))
 
 .subckt idt v x
 B1 v 0 V=idt(V(x),ic)
-.params ic=0
+.param ic=0
 .ends idt
 
 .subckt idt2 v x ic a
@@ -93,7 +93,7 @@ B1 v 0 V=idt(V(x),V(ic),V(a))
 
 .subckt idtmod v x
 B1 v 0 V=idtmod(V(x),ic,m,o)
-.params ic=0 m=0 o=0
+.param ic=0 m=0 o=0
 .ends idtmod
 
 .subckt idtmod2 v x ic m o
@@ -114,7 +114,7 @@ B1 v 0 V=inv(V(x))
 
 .subckt limit v x
 B1 v 0 V=limit(V(x),y,z)
-.params y=-1T z=1T
+.param y=-1T z=1T
 .ends limit
 
 .subckt mid v x y z
@@ -201,8 +201,8 @@ B1 v 0 V=white(V(x))
 
 .subckt deadb v x
 B1 v 0 V=deadb(V(x),y,z,b)
-.params y=-z z=1
-.params b=0
+.param y=-z z=1
+.param b=0
 .ends deadb
 
 .subckt mode v x y
@@ -287,5 +287,5 @@ B1 v 0 V=V(x)-1
 
 .subckt addk v x
 B1 v 0 V=V(x)+k
-.params k=0
+.param k=0
 .ends addk

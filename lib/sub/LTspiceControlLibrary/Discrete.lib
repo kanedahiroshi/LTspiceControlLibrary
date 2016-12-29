@@ -4,8 +4,8 @@
 V1 CLK 0 PULSE(0 1 0 {Tr} {Tr} 0 {T})
 A1 U 0 CLK 0 0 0 D0 0 SAMPLEHOLD Vlow={Ymin} Vhigh={Ymax}
 B1 Y 0 V=if(time>Tr,V(D0),V(U))
-.params T=1 Tr=1m*T
-.params Ymin=-10k Ymax=10k
+.param T=1 Tr=1m*T
+.param Ymin=-10k Ymax=10k
 .ends ZeroOrderHold
 
 .subckt UnitDelay Y U
@@ -14,6 +14,6 @@ V2 CLK 0 PULSE(0 1 0 {Tr} {Tr} 0 {T})
 A1 U 0 NCLK 0 0 0 D0 0 SAMPLEHOLD Vlow={Ymin} Vhigh={Ymax}
 A2 D0 0 CLK 0 0 0 D1 0 SAMPLEHOLD Vlow={Ymin} Vhigh={Ymax}
 B1 Y 0 V=if(time>(T+Tr),V(D1),Y0)
-.params T=1 Tr=1m*T
-.params Y0=0 Ymin=-10k Ymax=10k
+.param T=1 Tr=1m*T
+.param Y0=0 Ymin=-10k Ymax=10k
 .ends UnitDelay

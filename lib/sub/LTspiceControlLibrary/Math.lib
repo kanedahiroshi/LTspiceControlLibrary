@@ -1,5 +1,7 @@
 ** Math
 
+.include LTspiceControlLibrary\Math.inc
+
 * Functions built in arbitrary behavioral voltage
 
 .subckt abs v x
@@ -198,25 +200,25 @@ B1 v 0 V=white(V(x))
 * Additional Functions
 
 .subckt deadb v x
-B1 v 0 V=if((min(y,z)<V(x))&(V(x)<max(y,z)),b,V(x))
+B1 v 0 V=deadb(V(x),y,z,b)
 .params y=-z z=1
 .params b=0
 .ends deadb
 
 .subckt mode v x y
-B1 v 0 V=V(x)-V(y)*sgn(V(y))*floor(V(x)/abs(V(y)))
+B1 v 0 V=mode(V(x),V(y))
 .ends mode
 
 .subckt modf v x y
-B1 v 0 V=V(x)-V(y)*floor(V(x)/V(y))
+B1 v 0 V=modf(V(x),V(y))
 .ends modf
 
 .subckt modt v x y
-B1 v 0 V=V(x)-V(y)*int(V(x)/V(y))
+B1 v 0 V=modt(V(x),V(y))
 .ends modt
 
 .subckt modr v x y
-B1 v 0 V=V(x)-V(y)*round(V(x)/V(y))
+B1 v 0 V=modr(V(x),V(y))
 .ends modr
 
 * Operands built in arbitrary behavioral voltage

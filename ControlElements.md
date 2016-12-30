@@ -96,7 +96,7 @@
 | Name | Description |
 |---|---|
 | DCMotor | DC Motor. (default Ra=1 La=1m Ke=0.01 Kt=Ke Dm=10u Jm=10u) <br /> `V=(Ra+La*s)*I+Ke*Oe` <br /> `Tm=-(Dm+Jm*s)*Om+Kt*I` <br /> `Oe=Om` |
-| InductionMotor | Induction Motor with magnetic flux sensor. (default R1=1 R2=1 M=0.1 Ll1=1m Ll2=1m Dm=10m Jm=10m Np=2) <br /> `Vd1=(R1+L1*s)*Id1+M*s*Id2` <br /> `Vq1=(R1+L1*s)*Iq1+M*s*Iq2` <br /> `0=(R2+L2*s)*Id2+M*s*Id1+(M*Iq1+L2*Iq2)*Oe2` <br /> `0=(R2+L2*s)*Iq2+M*s*Iq1+(M*Id1+L2*Id2)*Oe2` <br /> `Tm=-(Dm+Jm*s)*Om+Np*(Iq1*Id2-Id1*Iq2)` <br /> `fa2=M*id1+L2*id2` <br /> `fb2=M*iq1+L2*iq2` <br /> `L1=Ll1+M` <br /> `L2=Ll2+M` <br /> `Oe2=Np*Om` |
+| InductionMotor | Induction Motor with magnetic flux sensor. (default R1=1 R2=1 M=0.1 Ll1=1m Ll2=1m Dm=10m Jm=10m Np=2) <br /> `Vd1=(R1+L1*s)*Id1+M*s*Id2` <br /> `Vq1=(R1+L1*s)*Iq1+M*s*Iq2` <br /> `0=(R2+L2*s)*Id2+M*s*Id1+(M*Iq1+L2*Iq2)*Oe2` <br /> `0=(R2+L2*s)*Iq2+M*s*Iq1+(M*Id1+L2*Id2)*Oe2` <br /> `Tm=-(Dm+Jm*s)*Om+Np*M*(Iq1*Id2-Id1*Iq2)` <br /> `fa2=M*id1+L2*id2` <br /> `fb2=M*iq1+L2*iq2` <br /> `L1=Ll1+M` <br /> `L2=Ll2+M` <br /> `Oe2=Np*Om` |
 | PMSMotor | Permanent Magnet Synchronous Motor. (default Ra=0.1 Ld=1m Lq=1m Ke=0.1 Kt=Ke Dm=0.1m Jm=0.1m Np=3 Pm0=0) <br /> `Vd=(Ra+Ld*s)*Id-Lq*Iq*Oe` <br /> `Vq=(Ra+Lq*s)*Iq+Ld*Id*Oe+Ke*Oe` <br /> `Tm=-(Dm+Jm*s)*Om+Np*(Kt*Iq+(Ld-Lq)*Id*Iq)` <br /> `Oe=Np*Om` |
 
 ## PulseModulations

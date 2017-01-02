@@ -23,6 +23,10 @@ LTSpice Control Libraryに付属のDCモータのモデル"DCMotor"と"DCMotorIn
 ```
 ただし、保存するデータ量が増えると解析速度が低下するため、不要であれば上記の設定は外したほうが良いです。
 
+#### 2017/1/3 追記
+過渡解析時間を短縮するため、LTSpice Control Libraryに付属のDCモータのモデル"DCMotor"の実装を変更しました。
+"DCMotor"と"DCMotorInternalModel"の回路特性は同等のままです。
+"DCMotorInternalModel.asc"は記事掲載時のまま今後も変更しません。
 
 ## 外部リンク
 - [トランジスタ技術2013年10月号（CQ出版WEBサイト）](http://toragi.cqpub.co.jp/tabid/687/Default.aspx)

@@ -40,6 +40,11 @@ LTSpice Control Libraryに付属の永久磁石型同期モータのモデル"PM
 LTspiceControlLibrary\examples\MotorDrive\PMSMVectorControl(Circuitless).asc
 
 
+#### 2017/1/3 追記
+過渡解析時間を短縮するため、LTSpice Control Libraryに付属の永久磁石型同期モータのモデル"PMSMotor"の実装を変更しました。
+"PMSMotor"と"PMSMotorInternalModel"の回路特性は同等のままです。
+"PMSMotorInternalModel.asc"は記事掲載時のまま今後も変更しません。
+
 ## 外部リンク
 - [Interface 2014年4月号（CQ出版WEBサイト）](http://www.kumikomi.net/interface/contents/201404.php)
 - [記事1ページ目（CQ出版WEBサイト）](http://www.kumikomi.net/interface/sample/201404/if04_061.pdf)

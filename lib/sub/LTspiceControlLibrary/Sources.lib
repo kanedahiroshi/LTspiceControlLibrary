@@ -13,10 +13,11 @@ V3 T N SINE({Voffset} {Vamp} {Freq} {Td} {Theta} {Phi+120} {Ncycles})
 .ends 3PhaseWyeSinWaveVoltage
 
 .subckt DCTransformer n1+ n1- n2+ n2- nc+ nc-
-Bi1 n1+ n1- I=-I(Bv1)*V(r)
-Bv1 n2+ n2- V=V(n1+,n1-)*V(r)
-B1 r 0 V=(V(nc+,nc-)-Vc1)/(Vc2-Vc1)
+Bi1 n1+ n1- I=-I(Bv1)*V(r) tripdt={tripdt} tripdv={tripdv}
+Bv1 n2+ n2- V=V(n1+,n1-)*V(r) tripdt={tripdt} tripdv={tripdv}
+B1 r 0 V=(V(nc+,nc-)-Vc1)/(Vc2-Vc1) tripdt={tripdt} tripdv={tripdv}
 .param Vc1=0 Vc2=1
+.param tripdt=1e300 tripdv=1
 .ends DCTransformer
 
 .subckt SolarCells s+ s- e+ e-
@@ -24,7 +25,7 @@ G1 e- NSC0 s+ s- {Isc0/S0}
 D1 NSC0 e- Dsc
 R1 NSC0 e- {Rper1}
 R2 NSC1 NSC0 {Rser1}
-B1 NSC1 e- I=-I(E1)/Nper
+F1 NSC1 e- E1 {-1/Nper}
 E1 e+ e- NSC1 e- {Nser}
 .param Nser=1 Nper=1
 .param S0=1000 Isc0=1

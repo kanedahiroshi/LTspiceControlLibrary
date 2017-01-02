@@ -10,13 +10,13 @@ B2 P 0 V=V(I)>=V(C) tripdt={tripdt} ic=0
 
 .subckt 3PhaseComplementaryPWM U V W up un vp vn wp wn
 X1 CN 0 TriangleWaveVoltage V1={Vin1} V2={Vin2-Vdead} Tperiod={Tperiod} tratio=0.5 Tdelay={Tdelay} Ncycles=0
-B1 CP 0 V=V(CN)+Vdead
-B2 up 0 V=V(U)>=V(CP) tripdt={tripdt} ic=0
-B3 un 0 V=V(U)<=V(CN) tripdt={tripdt} ic=0
-B4 vp 0 V=V(V)>=V(CP) tripdt={tripdt} ic=0
-B5 vn 0 V=V(V)<=V(CN) tripdt={tripdt} ic=0
-B6 wp 0 V=V(W)>=V(CP) tripdt={tripdt} ic=0
-B7 wn 0 V=V(W)<=V(CN) tripdt={tripdt} ic=0
+V1 CP CN {Vdead}
+B1 up 0 V=V(U)>=V(CP) tripdt={tripdt} ic=0
+B2 un 0 V=V(U)<=V(CN) tripdt={tripdt} ic=0
+B3 vp 0 V=V(V)>=V(CP) tripdt={tripdt} ic=0
+B4 vn 0 V=V(V)<=V(CN) tripdt={tripdt} ic=0
+B5 wp 0 V=V(W)>=V(CP) tripdt={tripdt} ic=0
+B6 wn 0 V=V(W)<=V(CN) tripdt={tripdt} ic=0
 .param Vin1=-1 Vin2=1 Tperiod=100u Tdead=1u Tdelay=0 tripdt=1*Tdead
 .param Vdead=2*(Vin2-Vin1)/(Tperiod/Tdead+2)
 .ends 3PhaseComplementaryPWM
@@ -46,6 +46,7 @@ B1 P 0 V=buf(V(I))^buf(V(P1)) tripdt={tripdt}
 .ends BothEdgesDetector
 
 .subckt PulseTimer I P
-B1 P 0 V=idt(F,ic,buf(V(I)))
+B1 P 0 V=idt(F,ic,buf(V(I))) tripdt={tripdt} tripdv={tripdv}
 .param F=1 ic=0
+.param tripdt=1e300 tripdv=1
 .ends PulseTimer

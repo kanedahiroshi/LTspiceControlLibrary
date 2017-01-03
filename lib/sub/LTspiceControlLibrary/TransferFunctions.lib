@@ -14,12 +14,12 @@ E1 Y 0 N001 0 1
 
 .subckt Integral Y U
 G1 0 N001 U 0 1
-C1 N001 0 {T}
+C1 N001 0 1
 R1 N001 N002 1 ; workaround to avoid a warning that node N001 is floating
 E1 N002 0 N001 0 1 ; workaround
-E2 Y 0 N001 0 1
+E2 Y 0 N001 0 {1/T}
 .param T=1 Y0=0
-.ic V(N001)={Y0}
+.ic V(N001)={Y0*T}
 .ends Integral
 
 .subckt LimitedIntegral Y U
@@ -36,8 +36,8 @@ B1 Y 0 V=idt((V(U)-delay(V(U),T)),Y0*i*T)/(i*T) tripdt={tripdt} tripdv={tripdv}
 
 .subckt 1stOrderLag Y U
 E1 N001 0 U 0 1
-R1 N001 N002 1
-C1 N002 0 {T}
+L1 N001 N002 {T} Rser=0
+R1 N002 0 1
 E2 Y 0 N002 0 {K}
 .param K=1 T=1
 .ends 1stOrderLag
@@ -60,8 +60,8 @@ B1 Y 0 V=delay(V(U),T) tripdt={tripdt} tripdv={tripdv}
 
 .subckt LaggedDerivative Y U
 E1 N001 0 U 0 1
-C1 N001 N002 {i*T}
-R1 N002 0 1
+R1 N001 N002 1
+L1 N002 0 {i*T} Rser=0
 E2 Y 0 N002 0 {1/i}
 .param i=1 T=1
 .ends LaggedDerivative

@@ -14,6 +14,7 @@
 ## Discrete
 | Name | Description |
 |---|---|
+| Previous | `pre(U)`: Previous value of U. |
 | UnitDelay | `1/z`: Unit delay element. (default T=1 Y0=0 Ymin=-10k Ymax=10k) |
 | ZeroOrderHold | Zero-order hold element. (default T=1 Ymin=-10k Ymax=10k) |
 

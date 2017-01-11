@@ -19,3 +19,12 @@ B1 Y 0 V=if(time>(T+Tr),V(D1),Y0) tripdt={tripdt} tripdv={tripdv}
 .param Y0=0 Ymin=-10k Ymax=10k
 .param tripdt=1e300 tripdv=1
 .ends UnitDelay
+
+.subckt Previous Y U
+.machine
+.output (pre_U) V(U)
+.endmachine
+R1 pre_U 0 1k
+B1 0 pre_U I=if(time>0,0,1m*V(U)) tripdt=1e300
+E1 Y 0 pre_U 0 1
+.ends

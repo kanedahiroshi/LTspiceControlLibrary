@@ -41,6 +41,7 @@
 | floor | `floor(x)`: Integer equal to or less than x. |
 | hypot | `hypot(x,y)`: `sqrt(x**2 + y**2)`. |
 | idt | `idt(x)`: Integrate x, optional initial condition ic (default 0). |
+| idt2 | `idt(x,ic,a)`: Integrate x, optional initial condition ic, reset if a is true. |
 | idtmod | `idtmod(x)`: Integrate x, optional initial condition ic, reset on reaching modulus m, offset output by o. |
 | if | `if(x,y,z)`: If x > .5, then y else z. |
 | int | `int(x)`: Convert x to integer. |

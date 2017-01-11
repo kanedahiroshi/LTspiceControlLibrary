@@ -28,3 +28,9 @@ R1 pre_U 0 1k
 B1 0 pre_U I=if(time>0,0,1m*V(U)) tripdt=1e300
 E1 Y 0 pre_U 0 1
 .ends
+
+.subckt Edge Y U
+X1 pre_U U Previous
+B1 Y 0 V=(rise&!(V(pre_U))&V(U))|(fall&V(pre_U)&!(V(U))) tripdt={tripdt}
+.param rise=1 fall=0 tripdt=1e300
+.ends

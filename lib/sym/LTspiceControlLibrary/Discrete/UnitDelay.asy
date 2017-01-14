@@ -16,7 +16,7 @@ SYMATTR Value T=1
 SYMATTR Value2 Y0=0
 SYMATTR Prefix X
 SYMATTR SpiceModel UnitDelay
-SYMATTR Description 1/z: Unit delay element. (default T=1 Y0=0 Ymin=-10k Ymax=10k)
+SYMATTR Description 1/z: Unit delay element. (default T=1 Y0=0)
 SYMATTR ModelFile LTspiceControlLibrary\Discrete.lib
 PIN 48 -32 NONE 8
 PINATTR PinName Y

@@ -13,7 +13,7 @@ WINDOW 3 0 0 Left 2
 SYMATTR Value T=1
 SYMATTR Prefix X
 SYMATTR SpiceModel ZeroOrderHold
-SYMATTR Description Zero-order hold element. (default T=1 Ymin=-10k Ymax=10k)
+SYMATTR Description Zero-order hold element. (default T=1)
 SYMATTR ModelFile LTspiceControlLibrary\Discrete.lib
 PIN 80 -32 NONE 8
 PINATTR PinName Y

@@ -16,8 +16,8 @@
 |---|---|
 | Edge | Edge `(rise & !pre(U) & U) | (fall & pre(U) & !U)`.　(default rise=1 fall=0) |
 | Previous | `pre(U)`: Previous value of U. |
-| UnitDelay | `1/z`: Unit delay element. (default T=1 Y0=0 Ymin=-10k Ymax=10k) |
-| ZeroOrderHold | Zero-order hold element. (default T=1 Ymin=-10k Ymax=10k) |
+| UnitDelay | `1/z`: Unit delay element. (default T=1 Y0=0) |
+| ZeroOrderHold | Zero-order hold element. (default T=1) |
 
 ## Math
 ### Functions

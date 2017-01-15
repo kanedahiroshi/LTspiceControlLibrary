@@ -52,11 +52,11 @@ B1 P 0 V=idt(F,ic,buf(V(I))) tripdt={tripdt} tripdv={tripdv}
 .ends PulseTimer
 
 .subckt OnOffDelay I P
-B1 P1 0 V={
+B1 P1 0 V=(
 + if(time<=0, buf(V(I)),
 + if(idt(1,0,inv(buf(V(I))^V(P)))>max(0,if(V(P),Toff,Ton)), inv(V(P)),
 + V(P)
-+ )) }
++ )) )
 + tripdt={tripdt}
 A1 P1 0 0 0 0 0 P2 0 BUF
 E1 P 0 P2 0 1
@@ -64,11 +64,11 @@ E1 P 0 P2 0 1
 .ends OnOffDelay
 
 .subckt OnOffDelay2 I Ton Toff P
-B1 P1 0 V={
+B1 P1 0 V=(
 + if(time<=0, buf(V(I)),
 + if(idt(1,0,inv(buf(V(I))^V(P)))>max(0,if(V(P),V(Toff),V(Ton))), inv(V(P)),
 + V(P)
-+ )) }
++ )) )
 + tripdt={tripdt}
 A1 P1 0 0 0 0 0 P2 0 BUF
 E1 P 0 P2 0 1

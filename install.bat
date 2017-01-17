@@ -1,15 +1,22 @@
 @echo off
-echo ==================================
-echo      LTspice Control Library
-echo ==================================
+set LIB_ID=LTspiceControlLibrary
+set LIB_NAME=LTspice Control Library
+
+set LTSPICE_REG_ID=LTspice IV
+set LTSPICE_NAME=LTspice IV
+
 echo.
-echo   1. Install (copy the library to the library directory of LTspice IV)
-echo   2. Uninstall (remove the library from the library directory of LTspice IV)
+echo ================================================================================
+echo   %LIB_NAME%
+echo ================================================================================
+echo.
+echo   1. Install (copy the library to the library directory of %LTSPICE_NAME%)
+echo   2. Uninstall (remove the library from the library directory of %LTSPICE_NAME%)
 echo.
 echo   0. Quit
 echo.
 echo NOTE:
-echo   Need to install LTspice IV before runnig this script.
+echo   Need to install %LTSPICE_NAME% before runnig this script.
 echo   Need to run this script as administrator.
 echo.
 if "%1"=="" (
@@ -24,21 +31,21 @@ if "%ODER_NO%"=="2" goto GET_LTSPICE_DIR
 goto END
 
 :GET_LTSPICE_DIR
-set KEY="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\LTspice IV"
+set KEY="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%LTSPICE_REG_ID%"
 set VALUE="UninstallString"
 
 reg query %KEY% /v %VALUE% >nul 2>nul
-if ERRORLEVEL 1 set KEY="HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\LTspice IV"
+if ERRORLEVEL 1 set KEY="HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\%LTSPICE_REG_ID%"
 
 for /F "TOKENS=1,2,*" %%I IN ('reg query %KEY% /v %VALUE%') do if "%%I"==%VALUE% set DATA=%%K
 set LTSPICE_DIR=%DATA:~0,-20%
 if not exist "%LTSPICE_DIR%" (
-  echo Could not find LTspice IV install directory.
+  echo Could not find %LTSPICE_NAME% install directory.
   goto END
 )
 
-set SUB=lib\sub\LTspiceControlLibrary
-set SYM=lib\sym\LTspiceControlLibrary
+set SUB=lib\sub\%LIB_ID%
+set SYM=lib\sym\%LIB_ID%
 
 :UNINSTALL
 if exist "%LTSPICE_DIR%%SUB%" (rmdir /S /Q "%LTSPICE_DIR%%SUB%" && echo remove "%LTSPICE_DIR%%SUB%".)

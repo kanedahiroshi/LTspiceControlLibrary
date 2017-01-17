@@ -1,15 +1,22 @@
 @echo off
-echo ==================================
-echo      LTspice Control Library
-echo ==================================
+set LIB_ID=LTspiceControlLibrary
+set LIB_NAME=LTspice Control Library
+
+set LTSPICE_ID=LTspiceXVII
+set LTSPICE_NAME=LTspice XVII
+
 echo.
-echo   1. Install (copy the library to the library directory of LTspice XVII)
-echo   2. Uninstall (remove the library from the library directory of LTspice XVII)
+echo ================================================================================
+echo   %LIB_NAME%
+echo ================================================================================
+echo.
+echo   1. Install (copy the library to the library directory of %LTSPICE_NAME%)
+echo   2. Uninstall (remove the library from the library directory of %LTSPICE_NAME%)
 echo.
 echo   0. Quit
 echo.
 echo NOTE:
-echo   Install LTspice XVII before runnig this script.
+echo   Install %LTSPICE_NAME% before runnig this script.
 echo   Don't need to run this script as administrator.
 echo.
 if "%1"=="" (
@@ -28,14 +35,14 @@ set KEY="HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders"
 set VALUE="Personal"
 for /F "TOKENS=1,2,*" %%I IN ('reg query %KEY% /v %VALUE%') do if "%%I"==%VALUE% set DATA=%%K
 
-set LTSPICE_DIR=%DATA%\LTspiceXVII\
+set LTSPICE_DIR=%DATA%\%LTSPICE_ID%\
 if not exist "%LTSPICE_DIR%" (
-  echo Could not find LTspice XVII personal directory.
+  echo Could not find %LTSPICE_NAME% personal directory.
   goto END
 )
 
-set SUB=lib\sub\LTspiceControlLibrary
-set SYM=lib\sym\LTspiceControlLibrary
+set SUB=lib\sub\%LIB_ID%
+set SYM=lib\sym\%LIB_ID%
 
 :UNINSTALL
 if exist "%LTSPICE_DIR%%SUB%" (rmdir /S /Q "%LTSPICE_DIR%%SUB%" && echo remove "%LTSPICE_DIR%%SUB%".)

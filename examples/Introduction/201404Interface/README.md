@@ -16,7 +16,7 @@ Interface 2014年4月号 pp.61-80. CQ出版
 - PMSMSynchronousRotation.asc （図10で使用）
 - PMSMVectorControlWithINV-1TGKIT-A(Circuitless).asc （図11で使用）
 - PMSMVectorControlWithINV-1TGKIT-A.asc （図15で使用）
-- PMSMVectorControlWithINV-1TGKIT-A_RX62T.zip （リスト1～7で使用）
+- ~~PMSMVectorControlWithINV-1TGKIT-A_RX62T.zip （リスト1～7で使用）~~（2017/2/3 削除しました）
 
 "PMSMotorInternalModel.asc"はサブサーキットとして使用可能です。同名の".asy"ファイルがシンボルファイルになります。
 LTSpice Control Libraryに付属の永久磁石型同期モータのモデル"PMSMotor"と"PMSMotorInternalModel"の回路特性は同じですが、以下の違いがあります。
@@ -44,6 +44,10 @@ LTspiceControlLibrary\examples\MotorDrive\PMSMVectorControl(Circuitless).asc
 過渡解析時間を短縮するため、LTSpice Control Libraryに付属の永久磁石型同期モータのモデル"PMSMotor"の実装を変更しました。
 "PMSMotor"と"PMSMotorInternalModel"の回路特性は同等のままです。
 "PMSMotorInternalModel.asc"は記事掲載時のまま今後も変更しません。
+
+#### 2017/2/3 追記
+PMSMVectorControlWithINV-1TGKIT-A_RX62T.zipを削除しました。
+同梱していたデスクトップラボ社の変数情報生成ツールおよびマイコン用ライブリラリのライセンスが不明であるためと、統合開発環境CubeSuite+が生成したテンプレートファイルにルネサスエレクトロニクス社の著作権表示があるためです。
 
 ## 外部リンク
 - [Interface 2014年4月号（CQ出版WEBサイト）](http://www.kumikomi.net/interface/contents/201404.php)

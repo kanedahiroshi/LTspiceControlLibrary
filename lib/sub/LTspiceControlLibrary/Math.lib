@@ -290,6 +290,16 @@ B1 v 0 V=V(x)^V(y) tripdt={tripdt}
 .param tripdt=1u
 .ends xor
 
+.subckt eq v x y
+B1 v 0 V=V(x)==V(y) tripdt={tripdt}
+.param tripdt=1u
+.ends eq
+
+.subckt neq v x y
+B1 v 0 V=V(x)!=V(y) tripdt={tripdt}
+.param tripdt=1u
+.ends neq
+
 .subckt nle v x y
 B1 v 0 V=V(x)>V(y) tripdt={tripdt}
 .param tripdt=1u

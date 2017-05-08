@@ -26,4 +26,4 @@ More Information
 - LTspice Control Library is released under the [MIT License](LICENSE.txt)
 - [DCモータ制御 紹介記事用サンプル](examples/Introduction/201310Toragi)
 - [DCブラシレスモータ制御 紹介記事用サンプル](examples/Introduction/201404Interface)
-- [太陽電池　最大電力点追従制御 紹介記事用サンプル](examples/Introduction/201705Toragi)
+- [太陽電池 最大電力点追従制御 紹介記事用サンプル](examples/Introduction/201705Toragi)

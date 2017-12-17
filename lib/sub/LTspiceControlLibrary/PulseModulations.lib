@@ -22,8 +22,8 @@ B6 wn 0 V=V(W)<=V(CN) tripdt={tripdt} ic=0
 .ends 3PhaseComplementaryPWM
 
 .subckt ComplementaryBufferWithDeadtime I P N
-B1 P 0 V=idt(1,0,inv(V(I)))>=Tdead tripdt={tripdt}
-B2 N 0 V=idt(1,0,buf(V(I)))>=Tdead tripdt={tripdt}
+B1 P 0 V=idt(1,0,inv(V(I)))>Tdead tripdt={tripdt}
+B2 N 0 V=idt(1,0,buf(V(I)))>Tdead tripdt={tripdt}
 .param Tdead=1u tripdt=1*Tdead
 .ends ComplementaryBufferWithDeadtime
 

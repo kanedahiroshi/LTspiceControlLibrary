@@ -1,4 +1,4 @@
-#Control Elements
+# Control Elements
 
 ## CoordinateTransformations
 | Name | Description |
@@ -14,7 +14,7 @@
 ## Discrete
 | Name | Description |
 |---|---|
-| Edge | Edge `(rise & !pre(U) & U) | (fall & pre(U) & !U)`.　(default rise=1 fall=0) |
+| Edge | Edge `(rise & !pre(U) & U) \| (fall & pre(U) & !U)`.　(default rise=1 fall=0) |
 | Previous | `pre(U)`: Previous value of U. |
 | UnitDelay | `1/z`: Unit delay element. (default T=1 Y0=0) |
 | ZeroOrderHold | Zero-order hold element. (default T=1) |
@@ -92,7 +92,7 @@
 | neq | `x!=y`: True if preceding expression is not equal to succeeding expression, otherwise false. |
 | nle | `x>y`: True if expression on the left is greater than the expression on the right, otherwise false. |
 | nlt | `x>=y`: True if expression on the left is less than or equal the expression on the right, otherwise false. |
-| or | <code>x&#124;y</code>: Convert the expressions to either side to Boolean, then OR. |
+| or | `x\|y`: Convert the expressions to either side to Boolean, then OR. |
 | rcp | `1/(x)`: Reciprocal of x. |
 | sub | `x-y`: Floating point subtraction. |
 | xor | `x^y`: Convert the expressions to either side to Boolean, then XOR. |

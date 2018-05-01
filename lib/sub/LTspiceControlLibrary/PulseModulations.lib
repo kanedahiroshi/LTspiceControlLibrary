@@ -46,7 +46,7 @@ B1 P 0 V=buf(V(I))^buf(V(P1)) tripdt={tripdt}
 .ends BothEdgesDetector
 
 .subckt PulseTimer I P
-B1 P1 0 V=idt(F0,ic,buf(V(I))) tripdt={tripdt} tripdv={tripdv}
+B1 P1 0 V=idt(F0,ic*(F0/F),buf(V(I))) tripdt={tripdt} tripdv={tripdv}
 E1 P 0 P1 0 {F/F0}
 .param F=1 ic=0
 .param F0=1Meg

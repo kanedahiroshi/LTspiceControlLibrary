@@ -8,6 +8,11 @@ B2 P 0 V=V(I)>=V(C) tripdt={tripdt} ic=0
 .param Vin1=0 Vin2=1 Tperiod=100u Tdelay=0 tripdt=1m*Tperiod
 .ends PWM
 
+.subckt PWMf T P
+B1 P 0 V=idtmod(1,0,V(T),{Tdelay})<V(T)*{duty} tripdt={tripdt} tripdv={1-1n} ic=0
+.param Tdelay=0 tripdt=1m/200k duty=0.5
+.ends PWMf
+
 .subckt 3PhaseComplementaryPWM U V W up un vp vn wp wn
 X1 CN 0 TriangleWaveVoltage V1={Vin1} V2={Vin2-Vdead} Tperiod={Tperiod} tratio=0.5 Tdelay={Tdelay} Ncycles=0
 V1 CP CN {Vdead}

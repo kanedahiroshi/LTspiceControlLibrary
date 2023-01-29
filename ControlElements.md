@@ -85,7 +85,7 @@
 | eq | `x==y`: True if preceding expression is equal to succeeding expression, otherwise false. |
 | inc | `x+1`: x is incremented by 1. |
 | inv | `!(x)`: Convert the following expression to Boolean and invert. |
-| le | `x<=y`: True if expression on the left is greater than or equal the expression on the right, otherwise false. |
+| le | `x<=y`: True if expression on the left is less than or equal the expression on the right, otherwise false. |
 | lt | `x<y`: True if expression on the left is less than the expression on the right, otherwise false. |
 | mul | `x*y`: Floating point multiplication. |
 | neg | `-(x)`: Negative of x. |

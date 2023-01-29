@@ -2,35 +2,45 @@
 
 .lib LTspiceControlLibrary\Sources.lib
 
-.subckt PWM I P
+.subckt PWM I P Vin1=0 Vin2=1 Tperiod=100u Tdelay=0
 X1 C 0 TriangleWaveVoltage V1={Vin1} V2={Vin2} Tperiod={Tperiod} tratio=1 Tdelay={Tdelay} Ncycles=0
-B2 P 0 V=V(I)>=V(C) tripdt={tripdt} ic=0
-.param Vin1=0 Vin2=1 Tperiod=100u Tdelay=0 tripdt=1m*Tperiod
+B2 0 P i=V(I)>=V(C) tripdt={tripdt} ic=0 Rpar=1 Cpar=30n
+.param  tripdt=1m*Tperiod
 .ends PWM
 
-.subckt 3PhaseComplementaryPWM U V W up un vp vn wp wn
+.subckt ComplementaryPWM U  up un Va=12V Vin1=-1 Vin2=1 Tperiod=100u Tdead=1u Tdelay=0
 X1 CN 0 TriangleWaveVoltage V1={Vin1} V2={Vin2-Vdead} Tperiod={Tperiod} tratio=0.5 Tdelay={Tdelay} Ncycles=0
 V1 CP CN {Vdead}
-B1 up 0 V=V(U)>=V(CP) tripdt={tripdt} ic=0
-B2 un 0 V=V(U)<=V(CN) tripdt={tripdt} ic=0
-B3 vp 0 V=V(V)>=V(CP) tripdt={tripdt} ic=0
-B4 vn 0 V=V(V)<=V(CN) tripdt={tripdt} ic=0
-B5 wp 0 V=V(W)>=V(CP) tripdt={tripdt} ic=0
-B6 wn 0 V=V(W)<=V(CN) tripdt={tripdt} ic=0
-.param Vin1=-1 Vin2=1 Tperiod=100u Tdead=1u Tdelay=0 tripdt=1*Tdead
+B1 0 up i=(V(U)>=V(CP))*Va tripdt={tripdt} ic=0 Rpar=1 Cpar=10n
+B2 0 un i=(V(U)<=V(CN))*Va  tripdt={tripdt} ic=0 Rpar=1 Cpar=10n
+.param  tripdt=Tdead
+.param Vdead=2*(Vin2-Vin1)/(Tperiod/Tdead+2)
+.ends ComplementaryPWM
+
+.subckt 3PhaseComplementaryPWM U V W up un vp vn wp wn Va=12V Vin1=-1 Vin2=1 Tperiod=100u Tdead=1u Tdelay=0
+X1 CN 0 TriangleWaveVoltage V1={Vin1} V2={Vin2-Vdead} Tperiod={Tperiod} tratio=0.5 Tdelay={Tdelay} Ncycles=0
+V1 CP CN {Vdead}
+B1 0 up i=(V(U)>=V(CP))*Va tripdt={tripdt} ic=0 Rpar=1 Cpar=10n
+B2 0 un i=(V(U)<=V(CN))*Va  tripdt={tripdt} ic=0 Rpar=1 Cpar=10n
+B3 0 vp i=(V(V)>=V(CP))*Va  tripdt={tripdt} ic=0 Rpar=1 Cpar=10n
+B4 0 vn i=(V(V)<=V(CN))*Va  tripdt={tripdt} ic=0 Rpar=1 Cpar=10n
+B5 0 wp i=(V(W)>=V(CP))*Va  tripdt={tripdt} ic=0 Rpar=1 Cpar=10n
+B6 0 wn i=(V(W)<=V(CN))*Va  tripdt={tripdt} ic=0  Rpar=1 Cpar=10n
+.param  tripdt=Tdead
 .param Vdead=2*(Vin2-Vin1)/(Tperiod/Tdead+2)
 .ends 3PhaseComplementaryPWM
 
-.subckt ComplementaryBufferWithDeadtime I P N
-B1 P 0 V=idt(1,0,inv(V(I)))>Tdead tripdt={tripdt}
-B2 N 0 V=idt(1,0,buf(V(I)))>Tdead tripdt={tripdt}
-.param Tdead=1u tripdt=1*Tdead
+
+.subckt ComplementaryBufferWithDeadtime I P N Va=1V Tdead=1u
+B1 0 P i={Va}*(idt(1,0,inv(V(I)))>={Tdead}) tripdt={tripdt} Rpar=1 Cpar=10n
+B2 0 N i={Va}*(idt(1,0,buf(V(I)))>={Tdead}) tripdt={tripdt} Rpar=1 Cpar=10n
+.param  tripdt={Tdead}
 .ends ComplementaryBufferWithDeadtime
 
-.subckt RisingEdgeDetector I P
+.subckt RisingEdgeDetector I P Tedge=1u 
 A1 I 0 0 0 0 0 P1 0 BUF Td={Tedge}
 B1 P 0 V=buf(V(I))&inv(V(P1)) tripdt={tripdt}
-.param Tedge=1u tripdt=0.1*Tedge
+.param tripdt=0.1*Tedge
 .ends RisingEdgeDetector
 
 .subckt FallingEdgeDetector I P
@@ -39,17 +49,15 @@ B1 P 0 V=inv(V(I))&buf(V(P1)) tripdt={tripdt}
 .param Tedge=1u tripdt=0.1*Tedge
 .ends FallingEdgeDetector
 
-.subckt BothEdgesDetector I P
+.subckt BothEdgesDetector I P Tedge=1u
 A1 I 0 0 0 0 0 P1 0 BUF Td={Tedge}
 B1 P 0 V=buf(V(I))^buf(V(P1)) tripdt={tripdt}
-.param Tedge=1u tripdt=0.1*Tedge
+.param  tripdt=0.1*Tedge
 .ends BothEdgesDetector
 
 .subckt PulseTimer I P
-B1 P1 0 V=idt(F0,ic*(F0/F),buf(V(I))) tripdt={tripdt} tripdv={tripdv}
-E1 P 0 P1 0 {F/F0}
+B1 P 0 V=idt(F,ic,buf(V(I))) tripdt={tripdt} tripdv={tripdv}
 .param F=1 ic=0
-.param F0=1Meg
 .param tripdt=1e300 tripdv=1
 .ends PulseTimer
 

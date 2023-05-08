@@ -1,5 +1,6 @@
 ** Math
 
+.include LTspiceControlLibrary\Math.inc
 
 * Functions built in arbitrary behavioral voltage
 
@@ -250,31 +251,26 @@ B1 v 0 V=deadb(V(x),y,z,b) tripdt={tripdt} tripdv={tripdv}
 .param y=-z z=1
 .param b=0
 .param tripdt=1e300 tripdv=1
-.lib LTspiceControlLibrary\Math.inc
 .ends deadb
 
 .subckt mode v x y
 B1 v 0 V=mode(V(x),V(y)) tripdt={tripdt} tripdv={tripdv}
 .param tripdt=1e300 tripdv=1
-.lib LTspiceControlLibrary\Math.inc
 .ends mode
 
 .subckt modf v x y
 B1 v 0 V=modf(V(x),V(y)) tripdt={tripdt} tripdv={tripdv}
 .param tripdt=1e300 tripdv=1
-.lib LTspiceControlLibrary\Math.inc
 .ends modf
 
 .subckt modt v x y
 B1 v 0 V=modt(V(x),V(y)) tripdt={tripdt} tripdv={tripdv}
 .param tripdt=1e300 tripdv=1
-.lib LTspiceControlLibrary\Math.inc
 .ends modt
 
 .subckt modr v x y
 B1 v 0 V=modr(V(x),V(y)) tripdt={tripdt} tripdv={tripdv}
 .param tripdt=1e300 tripdv=1
-.lib LTspiceControlLibrary\Math.inc
 .ends modr
 
 * Operands built in arbitrary behavioral voltage
